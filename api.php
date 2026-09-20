@@ -1,11 +1,17 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 
-$pdo = new PDO(
-    'mysql:host=sql203.infinityfree.com;dbname=if0_42964744;charset=utf8mb4',
-    'if0_42964744',
-    'wqG7PkvT3FvnO'
-);
+try {
+    $pdo = new PDO(
+        'mysql:host=localhost;dbname=portfolio_db;charset=utf8mb4',
+        'root',
+        '',
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
+} catch (PDOException $e) {
+    echo json_encode(['error' => $e->getMessage()], JSON_UNESCAPED_UNICODE);
+    exit;
+}
 
 $action = $_GET['action'] ?? '';
 
