@@ -1,9 +1,11 @@
 <?php
 $pdo = new PDO(
-    'mysql:host=sql203.infinityfree.com;dbname=if0_42964744;charset=utf8mb4',
-    'if0_42964744',
-    'wqG7PkvT3FvnO'
-);
+    $pdo = new PDO(
+        'mysql:host=localhost;dbname=portfolio_db;charset=utf8mb4',
+        'root',
+        '',
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    );
 ?>
 <!DOCTYPE html>
 <html lang="ru">
