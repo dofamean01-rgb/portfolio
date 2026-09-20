@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PortFolioPro — электронное портфолио студента</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">PortFolio<span>Pro</span></a>
+      <nav class="nav" id="nav"> <a href="#contact" class="nav__link">Связаться</a>
+        <a href="#about" class="nav__link">Обо мне</a>
+        <a href="#works" class="nav__link">Работы</a>
+        <a href="#skills" class="nav__link">Компетенции</a>
+        <a href="#grades" class="nav__link">Оценки</a>
+        <a href="#export" class="nav__link">Экспорт</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ГЕРОЙ -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <p class="hero__subtitle">Электронное портфолио</p>
+        <h1 class="hero__title">Привет, я <span id="studentName">Полников Николай</span></h1>
+        <p class="hero__desc">Студент направления «Информационные системы и технологии». Собираю здесь свои работы, компетенции и оценки.</p>
+        <div class="hero__actions">
+          <a href="#works" class="btn btn--primary">Смотреть работы</a>
+          <button class="btn btn--ghost" id="exportTop">Экспорт в PDF</button>
+        </div>
+      </div>
+      <div class="hero__card">
+        <img src="images/avatar.jpg" alt="Аватар" class="avatar">
+        <p class="hero__card-name">Полников Николай</p>
+        <p class="hero__card-role">Frontend-разработчик (junior)</p>
+        <ul class="hero__stats">
+          <li><strong id="statWorks">0</strong><span>работ</span></li>
+          <li><strong id="statSkills">0</strong><span>компетенций</span></li>
+          <li><strong id="statGrades">0</strong><span>оценок</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОБО МНЕ -->
+  <section class="section" id="about">
+    <div class="container">
+      <h2 class="section__title">Обо мне</h2>
+      <p class="section__lead">Краткая информация, контакты и ссылки на профили.</p>
+      <div class="about">
+        <div class="about__item"><span>Город</span><strong>Шарыпово</strong></div>
+        <div class="about__item"><span>Курс</span><strong>3 курс</strong></div>
+        <div class="about__item"><span>Email</span><strong>dofamean01@gmail.com</strong></div>
+        <div class="about__item"><span>GitHub</span><strong><a href="https://github.com/dofamean01-rgb">github.com/dofamean01-rgb</a></strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- РАБОТЫ -->
+  <section class="section section--alt" id="works">
+    <div class="container">
+      <h2 class="section__title">Работы</h2>
+
+      <div class="filters">
+        <button class="filter is-active" data-filter="all">Все</button>
+        <button class="filter" data-filter="course">Открытки</button>
+        <button class="filter" data-filter="lab">Интернет-Магазин</button>
+      </div>
+      <div class="works" id="worksGrid"></div>
+    </div>
+  </section>
+
+  <!-- КОМПЕТЕНЦИИ -->
+  <section class="section" id="skills">
+    <div class="container">
+      <h2 class="section__title">Компетенции</h2>
+      <p class="section__lead">Навыки и уровень владения ими.</p>
+      <div class="skills" id="skillsList"></div>
+    </div>
+  </section>
+
+  <!-- ОЦЕНКИ -->
+  <section class="section section--alt" id="grades">
+    <div class="container">
+      <h2 class="section__title">Оценки</h2>
+      <p class="section__lead">Успеваемость по дисциплинам.</p>
+      <div class="table-wrap">
+        <table class="table" id="gradesTable">
+          <thead>
+            <tr><th>Дисциплина</th><th>Семестр</th><th>Оценка</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЭКСПОРТ -->
+  <section class="section" id="export">
+    <div class="container export">
+      <h2 class="section__title">Экспорт портфолио</h2>
+      <p class="section__lead">Сформируйте PDF-файл со всеми данными портфолио.</p>
+      <button class="btn btn--primary btn--lg" id="exportBtn">Скачать PDF</button>
+      <p class="export__hint">Экспорт выполняется через диалог печати браузера («Сохранить как PDF»).</p>
+    </div>
+  </section>
+
+  <!-- ЗАЯВКА -->
+<section class="section section--alt" id="contact">
+  <div class="container">
+    <h2 class="section__title">Оставить заявку</h2>
+    <p class="section__lead">Свяжитесь со мной — я отвечу в течение дня.</p>
+
+    <form class="form" id="contactForm" novalidate>
+      <div class="form__row">
+        <label class="form__label">
+          <span>Имя *</span>
+          <input type="text" name="name" class="form__input" placeholder="ФИО" required>
+        </label>
+      </div>
+
+      <div class="form__row form__row--two">
+        <label class="form__label">
+          <span>Телефон *</span>
+          <input type="tel" name="phone" class="form__input" placeholder="+7 (999) 999-99-99" required>
+        </label>
+
+        <label class="form__label">
+          <span>Email *</span>
+          <input type="email" name="email" class="form__input" placeholder="123@mail.ru" required>
+        </label>
+      </div>
+
+      <div class="form__row">
+        <label class="form__label">
+          <span>Сообщение</span>
+          <textarea name="message" class="form__input form__textarea" rows="4" placeholder="Текст сообщения "></textarea>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">Отправить</button>
+
+      <p class="form__status" id="formStatus"></p>
+    </form>
+  </div>
+</section>
+
+  <!-- ПОДВАЛ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2025 PortFolioPro</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
